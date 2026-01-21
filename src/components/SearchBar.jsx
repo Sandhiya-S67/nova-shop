@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 
 const SearchBar = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -37,9 +38,9 @@ const SearchBar = () => {
       {searchQuery.trim().length !== 0 && searchSuggestions.length > 0 && (
         <div className="search-suggestions">
           {searchSuggestions.map((data) => (
-            <p key={data.id} className="suggestion-item">
-              {data.title}
-            </p>
+            <Link to={`/product/${data.id}`} key={data.id}>
+              <p className="suggesstion-item">{data.title}</p>
+            </Link>
           ))}
         </div>
       )}
